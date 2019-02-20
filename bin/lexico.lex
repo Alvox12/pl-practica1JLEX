@@ -28,6 +28,8 @@ bool = bool
 and = and
 or = or
 not = not
+true = true
+false = false
 identificador = {letra}({letra}|{digito}|\_)*
 numeroEntero = [\+,\-]?{digito}{digito}*[exponencial]?
 numeroReal = {numeroEntero}.{digito}{digito}*[exponencial]?
@@ -53,6 +55,8 @@ seccion =  \&\&
 {and}                     {return ops.unidadAnd();}
 {or}                   	  {return ops.unidadOr();}
 {not}                     {return ops.unidadNot();}
+{true}					  {return ops.unidadTrue();}
+{false}                   {return ops.unidadFalse();}
 {identificador}           {return ops.unidadId();}
 {numeroEntero}            {return ops.unidadEnt();}
 {numeroReal}              {return ops.unidadReal();}
