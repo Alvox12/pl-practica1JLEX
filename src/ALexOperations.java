@@ -22,6 +22,12 @@ public class ALexOperations {
   public UnidadLexica unidadNot() {
 	     return new UnidadLexicaUnivaluada(alex.fila(),ClaseLexica.NOT); 
 	  }
+  public UnidadLexica unidadTrue() {
+	     return new UnidadLexicaUnivaluada(alex.fila(),ClaseLexica.TRUE); 
+	  }
+  public UnidadLexica unidadFalse() {
+	     return new UnidadLexicaUnivaluada(alex.fila(),ClaseLexica.FALSE); 
+	  }
   public UnidadLexica unidadEnt() {
      return new UnidadLexicaMultivaluada(alex.fila(),ClaseLexica.ENT,alex.lexema()); 
   } 
