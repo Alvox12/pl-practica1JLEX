@@ -1,3 +1,4 @@
+package alex;
 
 
 public class AnalizadorLexico {
@@ -24,7 +25,7 @@ public class AnalizadorLexico {
 	private boolean yy_at_bol;
 	private int yy_lexical_state;
 
-	AnalizadorLexico (java.io.Reader reader) {
+	public AnalizadorLexico (java.io.Reader reader) {
 		this ();
 		if (null == reader) {
 			throw (new Error("Error: Bad input stream initializer."));
