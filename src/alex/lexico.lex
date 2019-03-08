@@ -1,3 +1,6 @@
+package alex;
+
+import errors.GestionErrores;
 
 %%
 %line
@@ -7,8 +10,12 @@
 
 %{
   private ALexOperations ops;
+  private GestionErrores errores;
   public String lexema() {return yytext();}
   public int fila() {return yyline+1;}
+  public void fijaGestionErrores(GestionErroresTiny errores) {
+   this.errores = errores;
+  }
 %}
 
 %eofval{
@@ -75,4 +82,4 @@ seccion =  \&\&
 {diferente}               {return ops.unidadDiferente();} 
 {puntocoma}               {return ops.unidadPuntoComa();}
 {seccion}                 {return ops.unidadSeparador();}
-[^]                       {ops.error();}  
+[^]                       {errores.errorLexico(fila(),lexema());}  

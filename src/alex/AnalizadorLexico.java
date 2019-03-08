@@ -1,4 +1,5 @@
 package alex;
+import errors.GestionErrores;
 
 
 public class AnalizadorLexico {
@@ -13,8 +14,12 @@ public class AnalizadorLexico {
 	private final int YY_EOF = 65537;
 
   private ALexOperations ops;
+  private GestionErrores errores;
   public String lexema() {return yytext();}
   public int fila() {return yyline+1;}
+  public void fijaGestionErrores(GestionErrores errores) {
+   this.errores = errores;
+  }
 	private java.io.BufferedReader yy_reader;
 	private int yy_buffer_index;
 	private int yy_buffer_read;
@@ -350,7 +355,7 @@ public class AnalizadorLexico {
 					case -5:
 						break;
 					case 5:
-						{ops.error();}
+						{errores.errorLexico(fila(),lexema());}
 					case -6:
 						break;
 					case 6:
@@ -454,7 +459,7 @@ public class AnalizadorLexico {
 					case -31:
 						break;
 					case 32:
-						{ops.error();}
+						{errores.errorLexico(fila(),lexema());}
 					case -32:
 						break;
 					case 33:
@@ -470,7 +475,7 @@ public class AnalizadorLexico {
 					case -35:
 						break;
 					case 36:
-						{ops.error();}
+						{errores.errorLexico(fila(),lexema());}
 					case -36:
 						break;
 					case 37:
@@ -478,7 +483,7 @@ public class AnalizadorLexico {
 					case -37:
 						break;
 					case 38:
-						{ops.error();}
+						{errores.errorLexico(fila(),lexema());}
 					case -38:
 						break;
 					case 39:
