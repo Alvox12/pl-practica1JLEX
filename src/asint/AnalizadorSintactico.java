@@ -60,6 +60,51 @@ public class AnalizadorSintactico {
 		
 	}
 	
+	private void E0() {
+		
+	}
+	
+	private void RE0() {
+		
+	}
+	
+	private void E1() {
+		
+	}
+	
+	private void RE1() {
+		
+	}
+
+	private void E2() {
+		
+	}
+	
+	private void RE2() {
+		
+	}
+
+	private void E3() {
+		
+	}
+	
+	private void RE3() {
+		
+	}
+
+	private void E4() {
+		
+	}
+	
+	private void RE4() {
+		
+	}
+	
+	private void E5() {
+		
+	}
+	
+	
 	private void empareja(ClaseLexica claseEsperada) {
 	      if (anticipo.clase() == claseEsperada)
 	          sigToken();
