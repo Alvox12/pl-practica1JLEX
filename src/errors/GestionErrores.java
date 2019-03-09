@@ -12,7 +12,7 @@ public class GestionErrores {
 	public void errorSintactico(int fila, ClaseLexica encontrada, ClaseLexica ... esperadas) {
 		System.out.print("ERROR fila "+fila+": Encontrado "+encontrada+" Se esperada: ");
 		for(ClaseLexica esperada: esperadas)
-		System.out.print(esperada+" ");
+			System.out.print(esperada+" ");
 		System.out.println();
 		System.exit(1);
 	}
