@@ -13,7 +13,7 @@ import errors.GestionErrores;
   private GestionErrores errores;
   public String lexema() {return yytext();}
   public int fila() {return yyline+1;}
-  public void fijaGestionErrores(GestionErroresTiny errores) {
+  public void fijaGestionErrores(GestionErrores errores) {
    this.errores = errores;
   }
 %}
@@ -28,7 +28,6 @@ import errors.GestionErrores;
 
 letra  = ([A-Z]|[a-z])
 digito = [0-9]
-exponencial = [e,E][\+,\-]?{digito}{digito}*
 separador = [ \t\r\b\n] 
 num = num
 bool = bool
@@ -38,8 +37,11 @@ not = not
 true = true
 false = false
 identificador = {letra}({letra}|{digito}|\_)*
-numeroEntero = [\+,\-]?{digito}{digito}*[exponencial]?
-numeroReal = {numeroEntero}.{digito}{digito}*[exponencial]?
+exponencial = [eE][\+,\-]?{digito}{digito}*
+numeroEnteroExp = [\+,\-]?{digito}{digito}*{exponencial}
+numeroRealExp = {numeroEntero}.{digito}{digito}*{exponencial}
+numeroEntero = [\+,\-]?{digito}{digito}*
+numeroReal = {numeroEntero}.{digito}{digito}*
 operadorSuma = \+
 operadorResta = \-
 operadorMultiplicacion = \*
@@ -67,6 +69,8 @@ seccion =  \&\&
 {identificador}           {return ops.unidadId();}
 {numeroEntero}            {return ops.unidadEnt();}
 {numeroReal}              {return ops.unidadReal();}
+{numeroEnteroExp}         {return ops.unidadEnt();}
+{numeroRealExp}           {return ops.unidadReal();}
 {operadorSuma}            {return ops.unidadSuma();}
 {operadorResta}           {return ops.unidadResta();}
 {operadorMultiplicacion}  {return ops.unidadMul();}

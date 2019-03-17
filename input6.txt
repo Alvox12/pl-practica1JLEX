@@ -1,0 +1,5 @@
+bool rico;
+num sueldo
+&&
+sueldo = 40 * 5 * 2E2;
+36 = (sueldo >= +6000)
